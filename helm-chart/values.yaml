@@ -1,18 +1,14 @@
 replicaCount: 3
-
 image:
   repository: host.minikube.internal:5000/java-microservice
   pullPolicy: IfNotPresent
-  tag: "latest"
-
+  tag: "f1c670d7c775a09121086cc7450578e723fe7ff6"
 imagePullSecrets:
   - name: regcred
-
 service:
   type: NodePort
   port: 8080
   targetPort: 8080
-
 resources:
   requests:
     cpu: 200m
@@ -20,14 +16,12 @@ resources:
   limits:
     cpu: 500m
     memory: 512Mi
-
 livenessProbe:
   httpGet:
     path: /actuator/health
     port: 8080
   initialDelaySeconds: 30
   periodSeconds: 10
-
 readinessProbe:
   httpGet:
     path: /actuator/health
