@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-java-microservice
+  labels:
+    app: java-microservice
+spec:
+  type: {{ .Values.service.type }}
+  selector:
+    app: java-microservice
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetPort }}
+      protocol: TCP

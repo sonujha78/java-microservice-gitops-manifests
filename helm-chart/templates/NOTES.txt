@@ -1,0 +1,10 @@
+Java Microservice has been deployed!
+
+To check the status of your pods:
+  kubectl get pods -l app=java-microservice
+
+To check the service:
+  kubectl get svc {{ .Release.Name }}-java-microservice
+
+To access the application (NodePort):
+  minikube service {{ .Release.Name }}-java-microservice --url
